@@ -4,18 +4,16 @@ from app import app
 from models import db, Plant
 
 with app.app_context():
-
-    Plant.query.delete()
+    db.drop_all()
+    db.create_all()
 
     aloe = Plant(
-        id=1,
         name="Aloe",
         image="./images/aloe.jpg",
         price=11.50,
     )
 
     zz_plant = Plant(
-        id=2,
         name="ZZ Plant",
         image="./images/zz-plant.jpg",
         price=25.98,
